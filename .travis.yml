@@ -1,0 +1,16 @@
+dist: xenial
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -fmy install libssl-dev
+  - sudo apt-get -fmy install libcpprest-dev
+  - sudo apt-get -fmy install libasound2-dev
+  - sudo apt-get -fmy install libsndfile1-dev
+  - sudo apt-get -fmy install libmagic-dev
+  - ./autogen.sh
+
+language: c++
+
+script:
+  - ./configure
+  - make
