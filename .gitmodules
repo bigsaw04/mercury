@@ -7,3 +7,6 @@
 [submodule "messaging_services"]
 	path = messaging_services
 	url = https://github.com/UniversalBinary/messaging_services.git
+[submodule "tclap"]
+	path = tclap
+	url = https://github.com/xguerin/tclap.git
