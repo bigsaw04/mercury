@@ -1,0 +1,6 @@
+[submodule "data_services"]
+	path = data_services
+	url = https://github.com/UniversalBinary/data_services.git
+[submodule "financial_services"]
+	path = financial_services
+	url = https://github.com/UniversalBinary/financial_services.git
