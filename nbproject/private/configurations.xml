@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="100">
-  <projectmakefile>Makefile</projectmakefile>
+  <projectmakefile>NBMakefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
@@ -15,6 +15,7 @@
         </gdb_interceptlist>
         <gdb_options>
           <DebugOptions>
+            <option name="debug_command" value="${HOME}/Projects/Outputs/Debug/mercury"/>
           </DebugOptions>
         </gdb_options>
         <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
@@ -25,8 +26,10 @@
       <runprofile version="9">
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>${HOME}/Projects/Outputs/Debug/mercury</runcommandpicklistitem>
+          <runcommandpicklistitem>../Outputs/Debug/mercury</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <runcommand>../Outputs/Debug/mercury</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>
@@ -48,6 +51,7 @@
         </gdb_interceptlist>
         <gdb_options>
           <DebugOptions>
+            <option name="debug_command" value="${HOME}/Projects/Outputs/Release/mercury"/>
           </DebugOptions>
         </gdb_options>
         <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
@@ -58,8 +62,9 @@
       <runprofile version="9">
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>${HOME}/Projects/Outputs/Release/mercury</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <runcommand>${HOME}/Projects/Outputs/Release/mercury</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>

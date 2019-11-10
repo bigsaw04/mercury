@@ -6,6 +6,7 @@ AC_INIT([mercury], [1.00], [gnosticist@protonmail.com])
 AX_CXX_COMPILE_STDCXX_17([noext], [mandatory])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile coinbase/Makefile])
+AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE
 
 # GNU recommended way to determine host variables (OS, etc)
@@ -18,25 +19,28 @@ AC_PROG_INSTALL
 # AM_PROG_CC_C_O seems to be the better choice when working with automake
 AM_PROG_CC_C_O
 
-# Checks for libraries.
+AX_BOOST_BASE([1.67.0])
+AX_BOOST_SYSTEM
+
+# Checks for OpenSSL.
 AX_CHECK_OPENSSL([], [AC_MSG_ERROR([OpenSSL not found.])])
-AC_LANG_PUSH([C++])
-AC_CHECK_HEADERS([boost/multiprecision/cpp_int.hpp], [], [AC_MSG_ERROR(Boost multiprecision library not found.)])
-AC_LANG_POP([C++])
+AC_SUBST([OPENSSL_INCLUDES])
+AC_SUBST([OPENSSL_LIBS])
+AC_SUBST([OPENSSL_LDFLAGS])
+# Check for boost
+#AC_LANG_PUSH([C++])
+#AC_CHECK_HEADERS([boost/multiprecision/cpp_int.hpp], [], [AC_MSG_ERROR([Boost multiprecision library not found.])])
+#AC_LANG_POP([C++])
+# Check for cpprest sdk
 AC_MSG_CHECKING([for cpprest])
 AC_LANG_PUSH(C++)
-SAVE_LIBS="$LIBS"
-LIBS="$LIBS -lcpprest"
-AC_TRY_LINK([#include <some_cpp_lib.hpp>], 
-        [SomeCppLib object;],
-        has_some_cpp_lib=1,
-        has_some_cpp_lib=0)
+SAVE_LIBS=${LIBS}
+LIBS="-lcpprest"
+AC_TRY_LINK([#include <cpprest/http_client.h>], [web::http::client::http_client_config client_config;], [AC_MSG_RESULT([yes])], [
+    AC_MSG_RESULT([no])
+    AC_MSG_ERROR([libcpprest not found.])])
+LIBS=${SAVE_LIBS}
 AC_LANG_POP(C++)
-if test $has_some_cpp_lib = 0; then
-  AC_MSG_RESULT([no])
-else
-  AC_MSG_RESULT([yes])
-fi
 
 # Checks for header files.
 

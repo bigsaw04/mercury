@@ -4,10 +4,13 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>financial_services/coinbase.hpp</itemPath>
       <itemPath>data_services/data_blob.hpp</itemPath>
       <itemPath>data_services/encoder.hpp</itemPath>
       <itemPath>data_services/globals.hpp</itemPath>
       <itemPath>data_services/hasher.hpp</itemPath>
+      <itemPath>financial_services/trade_context.hpp</itemPath>
+      <itemPath>financial_services/utilities.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -30,7 +33,7 @@
       <itemPath>NBMakefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <projectmakefile>Makefile</projectmakefile>
+  <projectmakefile>NBMakefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
@@ -43,16 +46,24 @@
           <incDir>
             <pElem>data_services</pElem>
             <pElem>financial_services</pElem>
-            <pElem>financial_services</pElem>
+            <pElem>tclap/include</pElem>
+            <pElem>messaging_services</pElem>
           </incDir>
           <commandLine>-std=gnu++17</commandLine>
         </ccTool>
         <linkerTool>
+          <output>${HOME}/Projects/Outputs/Debug/mercury</output>
           <linkerLibItems>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libcpprest.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libcrypto.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libssl.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libmagic.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libpthread.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libboost_system.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libboost_thread.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/gcc/arm-linux-gnueabihf/8/libstdc++fs.a</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libsndfile.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libasound.so</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -65,6 +76,15 @@
       <item path="data_services/globals.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="data_services/hasher.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="financial_services/coinbase.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="financial_services/trade_context.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="financial_services/utilities.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -82,7 +102,8 @@
           <incDir>
             <pElem>data_services</pElem>
             <pElem>financial_services</pElem>
-            <pElem>financial_services</pElem>
+            <pElem>tclap/include</pElem>
+            <pElem>messaging_services</pElem>
           </incDir>
           <commandLine>-std=gnu++17</commandLine>
         </ccTool>
@@ -93,11 +114,18 @@
           <developmentMode>5</developmentMode>
         </asmTool>
         <linkerTool>
+          <output>${HOME}/Projects/Outputs/Release/mercury</output>
           <linkerLibItems>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libcpprest.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libcrypto.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libssl.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libmagic.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libpthread.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libboost_system.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libboost_thread.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/gcc/arm-linux-gnueabihf/8/libstdc++fs.a</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libsndfile.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/arm-linux-gnueabihf/libasound.so</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -110,6 +138,15 @@
       <item path="data_services/globals.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="data_services/hasher.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="financial_services/coinbase.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="financial_services/trade_context.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="financial_services/utilities.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
