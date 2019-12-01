@@ -19,8 +19,10 @@ AC_PROG_INSTALL
 # AM_PROG_CC_C_O seems to be the better choice when working with automake
 AM_PROG_CC_C_O
 
-AX_BOOST_BASE([1.67.0])
+AC_LANG_PUSH([C++])
+AX_BOOST_BASE([1.67.0],, [AC_MSG_ERROR([boost 1.67 or later is needed, but it was not found in your system])])
 AX_BOOST_SYSTEM
+AC_LANG_POP([C++])
 
 # Checks for OpenSSL.
 AX_CHECK_OPENSSL([], [AC_MSG_ERROR([OpenSSL not found.])])
@@ -54,4 +56,3 @@ AC_FUNC_MALLOC
 AC_CHECK_FUNCS([strerror])
 
 AC_OUTPUT
-

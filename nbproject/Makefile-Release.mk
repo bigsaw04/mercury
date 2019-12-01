@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/coinbase/coinbase.o
+	${OBJECTDIR}/coinbase-bot/coinbase.o
 
 
 # C Compiler Flags
@@ -82,10 +82,10 @@ ${HOME}/Projects/Outputs/Release/mercury: ${OBJECTFILES}
 	${MKDIR} -p ${HOME}/Projects/Outputs/Release
 	${LINK.cc} -o ${HOME}/Projects/Outputs/Release/mercury ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/coinbase/coinbase.o: coinbase/coinbase.cpp
-	${MKDIR} -p ${OBJECTDIR}/coinbase
+${OBJECTDIR}/coinbase-bot/coinbase.o: coinbase-bot/coinbase.cpp
+	${MKDIR} -p ${OBJECTDIR}/coinbase-bot
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Idata_services -Ifinancial_services -Itclap/include -Imessaging_services -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/coinbase/coinbase.o coinbase/coinbase.cpp
+	$(COMPILE.cc) -O2 -Wall -Idata_services -Ifinancial_services -Itclap/include -Imessaging_services -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/coinbase-bot/coinbase.o coinbase-bot/coinbase.cpp
 
 # Subprojects
 .build-subprojects:
